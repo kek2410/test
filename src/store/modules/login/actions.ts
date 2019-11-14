@@ -22,6 +22,6 @@ export const actions: ActionTree<ProfileState, RootState> = {
 
   logOut({ commit }): void {
     commit("logOut");
-    // router.push({ name: "home" });
+    router.push({ name: "home" });
   }
 };

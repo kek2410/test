@@ -1,16 +1,16 @@
 <template>
-  <PersonalInfo />
+  <Login />
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import PersonalInfo from "@/components/mypage/PersonalInfo.vue";
+import Login from "@/components/login/Login.vue";
 
 @Component({
   components: {
-    PersonalInfo
+    Login
   }
 })
-export default class MyPage extends Vue {}
+export default class LoginPage extends Vue {}
 </script>

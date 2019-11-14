@@ -5,7 +5,7 @@ import store from "@/store";
 Vue.use(VueRouter);
 
 const Home = (): any => import("@/views/Home.vue");
-const Login = (): any => import("@/views/Login.vue");
+const LoginPage = (): any => import("@/views/LoginPage.vue");
 const Notice = (): any => import("@/views/Notice.vue");
 const ToDoList = (): any => import("@/views/ToDoList.vue");
 const MyPage = (): any => import("@/views/MyPage.vue");
@@ -41,7 +41,7 @@ const routes: any = [
     path: "/login",
     name: "login",
     beforeEnter: rejectAuthUser,
-    component: Login
+    component: LoginPage
   },
   {
     path: "/notice",

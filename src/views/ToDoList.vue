@@ -61,6 +61,14 @@ export default class ToDoList extends Vue {
     this.changeState({ memo: val });
   }
 
+  get getListLength() {
+    return this.state.todolist.length;
+  }
+
+  get getTodoList() {
+    return this.state.todolist;
+  }
+
   @Getter("countDone", { namespace }) countDone!: string;
 
   @Action("statusControl", { namespace }) statusControl: any;
@@ -92,18 +100,6 @@ export default class ToDoList extends Vue {
     this.memo = "";
     this.index = -1;
     this.mode = "add";
-  }
-
-  doedit(): void {
-    // this.$refs.calendar.nextDate()
-  }
-
-  get getListLength() {
-    return this.state.todolist.length;
-  }
-
-  get getTodoList() {
-    return this.state.todolist;
   }
 }
 </script>

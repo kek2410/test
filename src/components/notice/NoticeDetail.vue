@@ -3,16 +3,13 @@
     <h1>Notice Detail</h1>
   </div>
 </template>
-<script>
-export default {
-  name: "Notice",
-  components: {},
-  computed: {},
-  beforeCreate(to, from, next) {
-    console.log("before Create!");
-  },
-  beforeRouteEnter(to, from, next) {
-    console.log("before RouteEnter!");
-  }
-};
+
+<script lang="ts">
+import Component from "vue-class-component";
+import { Vue } from "vue-property-decorator";
+
+@Component
+export default class NoticeDetail extends Vue {
+  // @Prop() notice_data!: any;
+}
 </script>

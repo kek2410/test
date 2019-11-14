@@ -32,11 +32,9 @@ export default class Home extends Vue {
 
   // methods
   increment(): void {
-    console.log("increment");
     this.testNumber++;
   }
   decrement(): void {
-    console.log("decrement");
     this.testNumber--;
   }
 }

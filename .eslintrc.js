@@ -3,7 +3,7 @@ module.exports = {
   env: {
     node: true
   },
-  // parser: "vue-eslint-parser",
+  parser: "vue-eslint-parser",
   parserOptions: {
     parser: "@typescript-eslint/parser",
     ecmaVersion: 2018,
@@ -20,7 +20,8 @@ module.exports = {
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
     "@typescript-eslint/indent": ["error", 2],
     "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/camelcase": "off"
+    "@typescript-eslint/camelcase": "off",
+    "vue/attribute-hyphenation": "off"
   },
   overrides: [
     {
