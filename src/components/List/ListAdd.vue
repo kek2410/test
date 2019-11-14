@@ -1,15 +1,9 @@
 <template>
   <div>
     <v-textarea v-model="memo" outlined label="투두리스트를 입력하세요." />
-    <v-btn v-if="mode === 'add'" @click="todolistAdd">
-      리스트 추가
-    </v-btn>
-    <v-btn v-if="mode === 'edit'" @click="todolistEdit">
-      리스트 수정
-    </v-btn>
-    <v-btn v-if="mode === 'edit'" @click="cancelEdit">
-      수정 취소
-    </v-btn>
+    <v-btn v-if="mode === 'add'" @click="todolistAdd">리스트 추가</v-btn>
+    <v-btn v-if="mode === 'edit'" @click="todolistEdit">리스트 수정</v-btn>
+    <v-btn v-if="mode === 'edit'" @click="cancelEdit">수정 취소</v-btn>
   </div>
 </template>
 
@@ -19,7 +13,7 @@ import Component from "vue-class-component";
 import { Action } from "vuex-class";
 import { Prop } from "vue-property-decorator";
 
-const namespace: string = "todoList";
+const namespace = "todoList";
 
 @Component
 export default class ListAdd extends Vue {

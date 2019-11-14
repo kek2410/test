@@ -47,11 +47,11 @@ import { Vue, Prop } from "vue-property-decorator";
 import Component from "vue-class-component";
 import { Action } from "vuex-class";
 
-const namespace: string = "todoList";
+const namespace = "todoList";
 
 @Component
 export default class List extends Vue {
-  @Prop() todoList!: any;
+  @Prop() todoList!: object;
 
   @Action("statusControl", { namespace }) statusControl: any;
   @Action("listDelete", { namespace }) listDelete: any;
@@ -60,15 +60,15 @@ export default class List extends Vue {
     console.log("", this.todoList);
   }
 
-  Control(index: number, status: string) {
+  Control(index: number, status: string): void {
     this.statusControl({ index: index, status: status });
   }
 
-  Delete(index: number) {
+  Delete(index: number): void {
     this.listDelete({ index: index });
   }
 
-  Edit(memo: string, index: number) {
+  Edit(memo: string, index: number): void {
     this.$emit("tryEdit", { memo, index, mode: "edit" });
   }
 }

@@ -35,7 +35,7 @@ import Component from "vue-class-component";
 import { State, Getter, Action } from "vuex-class";
 import { ProfileState } from "@/store/modules/login/state";
 
-const namespace: string = "login";
+const namespace = "login";
 
 @Component
 export default class LoginPage extends Vue {

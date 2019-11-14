@@ -31,7 +31,7 @@ import Component from "vue-class-component";
 import { State, Getter, Action } from "vuex-class";
 import { State as todoState, InputState } from "@/store/modules/todoList/state";
 
-const namespace: string = "todoList";
+const namespace = "todoList";
 
 @Component({
   components: {

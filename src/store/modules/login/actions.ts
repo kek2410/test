@@ -4,7 +4,7 @@ import { RootState } from "@/store/types";
 import router from "@/router";
 
 export const actions: ActionTree<ProfileState, RootState> = {
-  login({ commit }, loginObj): any {
+  login({ commit }, loginObj): void {
     let selectedUser: any = null;
     let user: any = null;
 
@@ -20,7 +20,7 @@ export const actions: ActionTree<ProfileState, RootState> = {
     }
   },
 
-  logOut({ commit }): any {
+  logOut({ commit }): void {
     commit("logOut");
     // router.push({ name: "home" });
   }
