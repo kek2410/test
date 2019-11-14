@@ -9,15 +9,10 @@
         </p>
       </v-flex>
       <v-flex xs6 pa-2>
-        <List :todo-list="getTodoList" @tryEdit="tryEdit" />
+        <List :todolist="getTodoList" @tryEdit="tryEdit" />
       </v-flex>
       <v-flex xs6 pa-2>
-        <ListAdd
-          :mode="mode"
-          :memo="memo"
-          :index="index"
-          @cancelEdit="cancelEdit"
-        />
+        <ListAdd @cancelEdit="cancelEdit" />
       </v-flex>
     </v-layout>
   </v-container>
@@ -40,15 +35,37 @@ const namespace = "todoList";
   }
 })
 export default class ToDoList extends Vue {
-  memo: string = "";
-  mode: string = "add";
-  index: number = -1;
-  @State("todoList") state!: todoState;
+  @State(namespace) state!: todoState;
+
+  get index() {
+    return this.state.index;
+  }
+
+  set index(val) {
+    this.changeState({ index: val });
+  }
+
+  get mode() {
+    return this.state.mode;
+  }
+
+  set mode(val) {
+    this.changeState({ mode: val });
+  }
+
+  get memo() {
+    return this.state.memo;
+  }
+
+  set memo(val) {
+    this.changeState({ memo: val });
+  }
 
   @Getter("countDone", { namespace }) countDone!: string;
 
   @Action("statusControl", { namespace }) statusControl: any;
   @Action("listDelete", { namespace }) listDelete: any;
+  @Action("changeState", { namespace }) changeState: any;
 
   mounted() {}
 
@@ -75,6 +92,10 @@ export default class ToDoList extends Vue {
     this.memo = "";
     this.index = -1;
     this.mode = "add";
+  }
+
+  doedit(): void {
+    // this.$refs.calendar.nextDate()
   }
 
   get getListLength() {

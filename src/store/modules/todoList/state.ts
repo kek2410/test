@@ -7,4 +7,7 @@ export interface InputState {
 
 export interface State {
   todolist: InputState[];
+  memo?: string;
+  index?: number;
+  mode?: string;
 }

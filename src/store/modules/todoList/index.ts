@@ -8,7 +8,10 @@ import { RootState } from "@/store/types";
 
 //초기값 설정.
 export const state: State = {
-  todolist: []
+  todolist: [],
+  memo: "",
+  index: -1,
+  mode: "add"
 };
 
 const namespaced = true;

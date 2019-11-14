@@ -14,5 +14,8 @@ export const actions: ActionTree<State, RootState> = {
   },
   listEdit({ commit }, payload): void {
     commit("listEdit", payload);
+  },
+  changeState({ commit }, payload): void {
+    commit("changeState", payload);
   }
 };

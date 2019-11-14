@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card
-      v-for="(list, index) in todoList"
+      v-for="(list, index) in todolist"
       :key="index"
       :class="{ done: list.status === 'done' }"
       class="pa-3 mb-3"
@@ -51,13 +51,13 @@ const namespace = "todoList";
 
 @Component
 export default class List extends Vue {
-  @Prop() todoList!: object;
+  @Prop() todolist!: object;
 
   @Action("statusControl", { namespace }) statusControl: any;
   @Action("listDelete", { namespace }) listDelete: any;
 
   mounted() {
-    console.log("", this.todoList);
+    console.log("", this.todolist);
   }
 
   Control(index: number, status: string): void {

@@ -3,7 +3,7 @@ module.exports = {
   env: {
     node: true
   },
-  parser: "vue-eslint-parser",
+  // parser: "vue-eslint-parser",
   parserOptions: {
     parser: "@typescript-eslint/parser",
     ecmaVersion: 2018,
@@ -13,12 +13,6 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:vue/recommended",
     "@vue/prettier"
-    // "@vue/typescript"
-    // "prettier"
-    // "plugin:prettier/recommended"
-    // "standard"
-    // "eslint:recommended"
-    // "vuetify",
   ],
   plugins: ["html", "@typescript-eslint", "vue"],
   rules: {
