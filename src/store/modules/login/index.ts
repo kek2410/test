@@ -12,7 +12,7 @@ export const state: ProfileState = {
   isLoginError: false
 };
 
-const namespaced: boolean = true;
+const namespaced = true;
 
 export const login: Module<ProfileState, RootState> = {
   namespaced,

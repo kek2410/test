@@ -6,8 +6,8 @@
 <script>
 export default {
   name: "Notice",
-  computed: {},
   components: {},
+  computed: {},
   beforeCreate(to, from, next) {
     console.log("before Create!");
   },

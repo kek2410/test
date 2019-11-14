@@ -8,13 +8,13 @@ export const mutations: MutationTree<ProfileState> = {
     state.userInfo = payload;
   },
 
-  loginError: (state: ProfileState, payload): any => {
+  loginError: (state: ProfileState): any => {
     state.isLogin = false;
     state.isLoginError = true;
     state.userInfo = null;
   },
   // 로그아웃
-  logOut: (state: ProfileState, payload): any => {
+  logOut: (state: ProfileState): any => {
     state.isLogin = false;
     state.isLoginError = false;
     state.userInfo = null;

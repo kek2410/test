@@ -5,7 +5,7 @@
 <script lang="ts">
 import NoticeGrid from "@/components/notice/NoticeGrid.vue";
 import Component from "vue-class-component";
-import { Vue, Prop, Inject, Provide } from "vue-property-decorator";
+import { Vue } from "vue-property-decorator";
 
 @Component({
   components: {

@@ -11,7 +11,7 @@ export const state: State = {
   todolist: []
 };
 
-const namespaced: boolean = true;
+const namespaced = true;
 
 export const todoList: Module<State, RootState> = {
   namespaced,

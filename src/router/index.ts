@@ -4,16 +4,16 @@ import store from "@/store";
 
 Vue.use(VueRouter);
 
-const Home = () => import("@/views/Home.vue");
-const Login = () => import("@/views/Login.vue");
-const Notice = () => import("@/views/Notice.vue");
-const ToDoList = () => import("@/views/ToDoList.vue");
-const MyPage = () => import("@/views/MyPage.vue");
-const MovieList = () => import("@/views/MovieList.vue");
+const Home = (): any => import("@/views/Home.vue");
+const Login = (): any => import("@/views/Login.vue");
+const Notice = (): any => import("@/views/Notice.vue");
+const ToDoList = (): any => import("@/views/ToDoList.vue");
+const MyPage = (): any => import("@/views/MyPage.vue");
+const MovieList = (): any => import("@/views/MovieList.vue");
 
 const isLogin = store.getters["login/getIsLogin"];
 
-const rejectAuthUser = (to: string, from: string, next: any) => {
+const rejectAuthUser = (to: string, from: string, next: any): void => {
   if (isLogin) {
     alert("이미 로그인하였습니다.");
     next("/");
@@ -22,7 +22,7 @@ const rejectAuthUser = (to: string, from: string, next: any) => {
   }
 };
 
-const onlyAuthUser = (to: string, from: string, next: any) => {
+const onlyAuthUser = (to: string, from: string, next: any): void => {
   if (isLogin) {
     alert("로그인이 필요합니다.");
     next("/");

@@ -7,13 +7,10 @@
 </template>
 
 <script lang="ts">
-import { Prop, Inject, Provide } from "vue-property-decorator";
 import Vue from "vue";
 import Component from "vue-class-component";
-import { State, Getter, Action } from "vuex-class";
+import { State } from "vuex-class";
 import { ProfileState } from "@/store/modules/login/state";
-
-const namespace: string = "login";
 
 @Component
 export default class MyPage extends Vue {

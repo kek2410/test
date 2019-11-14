@@ -79,10 +79,8 @@
 </template>
 
 <script lang="ts">
-// import NOTICEGRID from "@/components/notice/NoticeGrid.vue";
 import Component from "vue-class-component";
 import { Vue, Prop } from "vue-property-decorator";
-// import { Vue, Prop, Inject, Provide } from "vue-property-decorator";
 import { State, Getter, Action } from "vuex-class";
 import { ProfileState } from "@/store/modules/login/state";
 

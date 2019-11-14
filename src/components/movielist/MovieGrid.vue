@@ -9,9 +9,9 @@
         <v-card style="width:10%;" class="pa-2" outlined tile>평점</v-card>
       </v-row>
       <v-row
-        style="height:160px;"
         v-for="(list, index) in movieList"
         :key="index"
+        style="height:160px;"
         no-gutters
       >
         <!-- <v-col v-for="(data, colIdx) in list" :key="colIdx" cols="12" sm="4"> -->

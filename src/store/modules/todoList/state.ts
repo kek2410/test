@@ -6,5 +6,5 @@ export interface InputState {
 }
 
 export interface State {
-  todolist: Array<InputState>;
+  todolist: InputState[];
 }

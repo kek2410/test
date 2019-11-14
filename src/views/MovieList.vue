@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-btn @click="searchMovie">조회</v-btn>
-    <MovieGrid :movieList="movieList" />
+    <MovieGrid :movie-list="movieList" />
   </div>
 </template>
 <script lang="ts">
@@ -24,6 +24,7 @@ export default class MovieList extends Vue {
   movieList: any = null;
 
   url: string = "https://yts.lt/api/v2/list_movies.json?sort_by=rating";
+  params: {} = {};
   //mounted
   mounted() {
     this.searchMovie();
@@ -31,9 +32,8 @@ export default class MovieList extends Vue {
 
   //methods
   async searchMovie() {
-    this.movieList = null;
-    this.movieList = await customAxios(this.url);
-    console.log("finish");
+    this.movieList = await customAxios(this.url, this.params);
+    // this.movieList = await customAxios(this.url);
   }
 }
 </script>

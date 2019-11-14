@@ -6,7 +6,7 @@
     <v-btn @click="increment">
       <v-icon>mdi-plus</v-icon>
     </v-btn>
-    <HelloWorld :msg="inputMsg" :testNumber="testNumber" />
+    <HelloWorld :msg="inputMsg" :test-number="testNumber" />
   </div>
 </template>
 
