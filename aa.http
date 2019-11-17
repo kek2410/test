@@ -1,0 +1,12 @@
+# GEt https://google.com
+
+
+get https://reqres.in/api/users?page=2
+
+# post https://reqres.in/api/login?email=eve.holt@reqres.in&password=cityslicka
+
+
+###
+
+# "email": "eve.holt@reqres.in",
+#     "password": "cityslicka"
