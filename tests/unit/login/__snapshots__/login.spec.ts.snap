@@ -1,0 +1,174 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Store Module Test Go. Login component - Snapshot 1`] = `
+<div
+  class="container name"
+  style="max-width: 350px;"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col col-12"
+    >
+      <div
+        class="v-alert v-sheet theme--dark error"
+        role="alert"
+        style="display: none;"
+      >
+        <div
+          class="v-alert__wrapper"
+        >
+          <i
+            aria-hidden="true"
+            class="v-icon notranslate v-alert__icon mdi mdi-alert theme--dark"
+          />
+          <div
+            class="v-alert__content"
+          >
+            아이디와 비밀번호를 확인해주세요.
+          </div>
+        </div>
+      </div>
+       
+      <div
+        class="v-alert v-sheet theme--dark success"
+        role="alert"
+        style="display: none;"
+      >
+        <div
+          class="v-alert__wrapper"
+        >
+          <i
+            aria-hidden="true"
+            class="v-icon notranslate v-alert__icon mdi mdi-check-circle theme--dark"
+          />
+          <div
+            class="v-alert__content"
+          >
+            로그인이 완료되었습니다.
+          </div>
+        </div>
+      </div>
+       
+      <div
+        class="v-card v-sheet theme--light"
+      >
+        <header
+          class="v-sheet v-sheet--tile theme--light v-toolbar v-toolbar--flat"
+          style="height: 64px;"
+        >
+          <div
+            class="v-toolbar__content"
+            style="height: 64px;"
+          >
+            <div
+              class="v-toolbar__title"
+            >
+              로그인
+            </div>
+          </div>
+        </header>
+         
+        <div
+          class="pa-3"
+        >
+          <div
+            class="v-input theme--light v-text-field"
+          >
+            <div
+              class="v-input__control"
+            >
+              <div
+                class="v-input__slot"
+              >
+                <div
+                  class="v-text-field__slot"
+                >
+                  <label
+                    class="v-label theme--light"
+                    for="input-11"
+                    style="left: 0px; position: absolute;"
+                  >
+                    이메일을 입력해주세요.
+                  </label>
+                  <input
+                    id="input-11"
+                    type="text"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-text-field__details"
+              >
+                <div
+                  class="v-messages theme--light"
+                >
+                  <span
+                    class="v-messages__wrapper"
+                    name="message-transition"
+                    tag="div"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+           
+          <div
+            class="v-input theme--light v-text-field"
+          >
+            <div
+              class="v-input__control"
+            >
+              <div
+                class="v-input__slot"
+              >
+                <div
+                  class="v-text-field__slot"
+                >
+                  <label
+                    class="v-label theme--light"
+                    for="input-14"
+                    style="left: 0px; position: absolute;"
+                  >
+                    패스워드를 입력하세요
+                  </label>
+                  <input
+                    id="input-14"
+                    keydown=""
+                    type="password"
+                  />
+                </div>
+              </div>
+              <div
+                class="v-text-field__details"
+              >
+                <div
+                  class="v-messages theme--light"
+                >
+                  <span
+                    class="v-messages__wrapper"
+                    name="message-transition"
+                    tag="div"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+           
+          <button
+            class="v-btn v-btn--block v-btn--depressed theme--light v-size--large"
+            type="button"
+          >
+            <span
+              class="v-btn__content"
+            >
+              로그인
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -20,9 +20,7 @@ export const mutations: MutationTree<State> = {
     state.userInfo = null;
   },
 
-  changeState: (state: State, payload): any => {
-    if (payload.email !== undefined && payload.email !== null) {
-      state.email = payload.email;
-    }
+  chStateEmail: (state: State, payload): any => {
+    state.email = payload;
   }
 };

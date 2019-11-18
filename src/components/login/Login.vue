@@ -44,9 +44,7 @@ const namespace = "login";
 })
 export default class LoginPage extends Vue {
   password: string = "";
-
   @State("login") login!: LoginState;
-  @Action("changeState", { namespace }) changeState: any;
 
   get email() {
     console.log(this.login.email);
@@ -54,8 +52,8 @@ export default class LoginPage extends Vue {
   }
 
   set email(val: any) {
-    // this.$store.state.login.email = val;
-    this.changeState({ email: val });
+    this.$store.commit("login/chStateEmail", { email: val });
+    // this.changeState({ email: val });
   }
 
   get isLoginError() {
@@ -70,7 +68,7 @@ export default class LoginPage extends Vue {
   @Getter("fullName", { namespace }) fullName!: string;
 
   mounted() {
-    // fetching data as soon as the component's been mounted
+    this.email = this.login.email;
   }
 
   loginGo(): void {
@@ -78,7 +76,9 @@ export default class LoginPage extends Vue {
       email: this.email,
       password: this.password
     };
-    this.actionLogin(data);
+    console.log(this.email);
+    console.log(data);
+    // this.actionLogin(data);
     // this.$store.dispatch("actionLogin", data, { root: true });
   }
 }

@@ -8,6 +8,8 @@ export const actions: ActionTree<State, RootState> = {
     let selectedUser: any = null;
     let user: any = null;
 
+    console.log(loginObj);
+
     for (user of allUsers) {
       if (user.email === loginObj.email) selectedUser = user;
     }
