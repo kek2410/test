@@ -44,9 +44,7 @@
       <v-menu v-if="isLogin === true" offset-y>
         <template v-slot:activator="{ on }">
           <v-chip>
-            <v-icon left color="red">
-              mdi-account
-            </v-icon>
+            <v-icon left color="red">mdi-account</v-icon>
             <!-- {{$store.state.userInfo.name}} 님 -->
           </v-chip>
           <v-btn icon dark v-on="on">
@@ -58,15 +56,11 @@
             <v-list-item-title>My Page</v-list-item-title>
           </v-list-item>
           <v-list-item>
-            <v-list-item-title @click="loginOut">
-              Log Out
-            </v-list-item-title>
+            <v-list-item-title @click="loginOut">Log Out</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
-      <v-btn v-else router :to="{ name: 'login' }" dark>
-        Login
-      </v-btn>
+      <v-btn v-else router :to="{ name: 'login' }" dark>Login</v-btn>
     </v-app-bar>
     <v-content>
       <router-view />
@@ -82,7 +76,7 @@
 import Component from "vue-class-component";
 import { Vue, Prop } from "vue-property-decorator";
 import { State, Getter, Action } from "vuex-class";
-import { ProfileState } from "@/store/modules/login/state";
+import { State as LoginState } from "@/store/modules/login/state";
 
 const namespace = "login";
 
@@ -92,13 +86,13 @@ export default class App extends Vue {
 
   @Prop() source!: string;
 
-  @State("login") login!: ProfileState;
+  @State("login") login!: LoginState;
 
   get isLogin() {
     return this.login.isLogin;
   }
 
-  @Action("logOut", { namespace }) actionLogOut: any;
+  @Action("actionLogOut", { namespace }) actionLogOut: any;
 
   @Getter("fullName", { namespace }) fullName!: string;
 

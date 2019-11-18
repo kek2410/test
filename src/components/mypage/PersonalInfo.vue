@@ -10,14 +10,14 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import { State } from "vuex-class";
-import { ProfileState } from "@/store/modules/login/state";
+import { State as LoginState } from "@/store/modules/login/state";
 
 @Component
 export default class PersonalInfo extends Vue {
   email: string = "";
   password: string = "";
 
-  @State("login") login!: ProfileState;
+  @State("login") login!: LoginState;
 
   mounted() {}
 }

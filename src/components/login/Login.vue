@@ -1,13 +1,9 @@
 <template>
-  <v-container style="max-width:350px;">
+  <v-container style="max-width:350px;" name="loginCon">
     <v-row>
       <v-col cols="12">
-        <v-alert :value="isLoginError" type="error"
-          >아이디와 비밀번호를 확인해주세요.</v-alert
-        >
-        <v-alert :value="isLogin" type="success"
-          >로그인이 완료되었습니다.</v-alert
-        >
+        <v-alert :value="isLoginError" type="error">아이디와 비밀번호를 확인해주세요.</v-alert>
+        <v-alert :value="isLogin" type="success">로그인이 완료되었습니다.</v-alert>
         <v-card>
           <v-toolbar flat>
             <v-toolbar-title>로그인</v-toolbar-title>
@@ -30,19 +26,37 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
+import { Component, Vue } from "vue-property-decorator";
 import { State, Getter, Action } from "vuex-class";
-import { ProfileState } from "@/store/modules/login/state";
+// import { State, Getter } from "vuex-class";
+import { State as LoginState } from "@/store/modules/login/state";
+// import { mapActions } from "vuex";
 
 const namespace = "login";
 
-@Component
+@Component({
+  computed: {
+    // ...mapActions(namespace, ["actionLogin"])
+  },
+  methods: {
+    // ...mapActions(namespace, ["actionLogin"])
+  }
+})
 export default class LoginPage extends Vue {
-  email: string = "";
   password: string = "";
 
-  @State("login") login!: ProfileState;
+  @State("login") login!: LoginState;
+  @Action("changeState", { namespace }) changeState: any;
+
+  get email() {
+    console.log(this.login.email);
+    return this.login.email;
+  }
+
+  set email(val: any) {
+    // this.$store.state.login.email = val;
+    this.changeState({ email: val });
+  }
 
   get isLoginError() {
     return this.login.isLoginError;
@@ -52,21 +66,20 @@ export default class LoginPage extends Vue {
     return this.login.isLogin;
   }
 
-  @Action("login", { namespace }) actionLogin: any;
+  @Action("actionLogin", { namespace }) actionLogin: any;
   @Getter("fullName", { namespace }) fullName!: string;
 
   mounted() {
     // fetching data as soon as the component's been mounted
   }
 
-  loginGo(data: object): void {
-    // this.actionLogin(data);
-    console.log(data);
-    const data2 = {
+  loginGo(): void {
+    const data = {
       email: this.email,
       password: this.password
     };
-    this.actionLogin(data2);
+    this.actionLogin(data);
+    // this.$store.dispatch("actionLogin", data, { root: true });
   }
 }
 </script>

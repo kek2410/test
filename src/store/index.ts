@@ -4,6 +4,8 @@ import { login } from "@/store/modules/login";
 import { todoList } from "@/store/modules/todoList";
 import { RootState } from "./types";
 
+// const debug = process.env.NODE_ENV !== "production";
+
 Vue.use(Vuex);
 
 const store: StoreOptions<RootState> = {
@@ -13,8 +15,8 @@ const store: StoreOptions<RootState> = {
   modules: {
     login,
     todoList
-  }
+  },
+  strict: true
 };
 
-// export default new Vuex.Store<RootState>(store);
 export default new Vuex.Store(store);

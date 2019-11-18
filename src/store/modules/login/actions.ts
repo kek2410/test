@@ -1,10 +1,10 @@
 import { ActionTree } from "vuex";
-import { ProfileState, allUsers } from "./state";
+import { State, allUsers } from "./state";
 import { RootState } from "@/store/types";
 import router from "@/router";
 
-export const actions: ActionTree<ProfileState, RootState> = {
-  login({ commit }, loginObj): void {
+export const actions: ActionTree<State, RootState> = {
+  actionLogin({ commit }, loginObj): void {
     let selectedUser: any = null;
     let user: any = null;
 
@@ -20,8 +20,12 @@ export const actions: ActionTree<ProfileState, RootState> = {
     }
   },
 
-  logOut({ commit }): void {
+  actionLogOut({ commit }): void {
     commit("logOut");
     router.push({ name: "home" });
+  },
+
+  changeState({ commit }, data: any): void {
+    commit("changeState", data);
   }
 };

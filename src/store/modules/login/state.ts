@@ -20,12 +20,10 @@ declare interface UserInfo {
   password?: string | undefined | null;
 }
 
-// export interface User {
-//   userInfo?: UserInfo;
-// }
-
-export declare interface ProfileState {
+export declare interface State {
   userInfo: any;
   isLogin: boolean;
   isLoginError: boolean;
+  email: string;
+  password: string;
 }
