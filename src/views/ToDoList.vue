@@ -9,10 +9,10 @@
         </p>
       </v-flex>
       <v-flex xs6 pa-2>
-        <List :todolist="getTodoList" @tryEdit="tryEdit" />
+        <List :todolist="getTodoList" />
       </v-flex>
       <v-flex xs6 pa-2>
-        <ListAdd @cancelEdit="cancelEdit" />
+        <ListAdd />
       </v-flex>
     </v-layout>
   </v-container>
@@ -37,30 +37,6 @@ const namespace = "todoList";
 export default class ToDoList extends Vue {
   @State(namespace) state!: todoState;
 
-  get index() {
-    return this.state.index;
-  }
-
-  set index(val) {
-    this.changeState({ index: val });
-  }
-
-  get mode() {
-    return this.state.mode;
-  }
-
-  set mode(val) {
-    this.changeState({ mode: val });
-  }
-
-  get memo() {
-    return this.state.memo;
-  }
-
-  set memo(val) {
-    this.changeState({ memo: val });
-  }
-
   get getListLength() {
     return this.state.todolist.length;
   }
@@ -70,36 +46,16 @@ export default class ToDoList extends Vue {
   }
 
   @Getter("countDone", { namespace }) countDone!: string;
-
   @Action("statusControl", { namespace }) statusControl: any;
   @Action("listDelete", { namespace }) listDelete: any;
-  @Action("changeState", { namespace }) changeState: any;
 
   mounted() {}
-
-  modeControl(data: string): void {
-    this.mode = data;
-  }
 
   todostatusControl(data: InputState): void {
     this.statusControl(data);
   }
   todolistDelete(data: InputState): void {
     this.listDelete(data);
-  }
-
-  tryEdit(data: any): void {
-    console.log("tryEdit");
-    this.memo = data.memo;
-    this.index = data.index;
-    this.mode = data.mode;
-  }
-
-  cancelEdit(): void {
-    console.log("cancelEdit");
-    this.memo = "";
-    this.index = -1;
-    this.mode = "add";
   }
 }
 </script>

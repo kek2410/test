@@ -1,5 +1,5 @@
 export interface InputState {
-  memo: string;
+  memo?: string;
   status?: string;
   index?: number;
   mode?: string;

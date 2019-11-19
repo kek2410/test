@@ -1,6 +1,5 @@
 <template>
   <div>
-    MOVIEGRID
     <v-container class="grey lighten-5">
       <v-row no-gutters>
         <v-card style="width:10%;" class="pa-2" outlined tile>이미지</v-card>
@@ -14,34 +13,34 @@
         style="height:160px;"
         no-gutters
       >
-        <!-- <v-col v-for="(data, colIdx) in list" :key="colIdx" cols="12" sm="4"> -->
-        <v-img :src="list.small_cover_image" style="width:10%;" contain></v-img>
-        <v-card style="width:10%;" class="pa-2" outlined tile>{{
-          list.title
-        }}</v-card>
-        <v-card style="width:70%;" class="pa-2" outlined tile>{{
-          list.synopsis
-        }}</v-card>
-        <v-card style="width:10%;" class="pa-2" outlined tile>{{
-          list.rating
-        }}</v-card>
-        <!-- </v-col> -->
+        <MovieGridRow :list="list" />
       </v-row>
     </v-container>
   </div>
 </template>
 
-<script>
-export default {
-  name: "MovieGrid",
-  props: ["movieList"],
-  data() {
-    return {};
+<script lang="ts">
+import { Component, Vue, Prop } from "vue-property-decorator";
+import MovieGridRow from "./MovieGridRow.vue";
+
+@Component({
+  components: {
+    MovieGridRow
+  },
+  computed: {
+    // ...mapActions(namespace, ["actionLogin"])
   },
   methods: {
-    deleteLine(i) {
-      this.notices.splice(i, 1);
-    }
+    // ...mapActions(namespace, ["actionLogin"])
   }
-};
+})
+export default class MovieGrid extends Vue {
+  @Prop() movieList!: any;
+
+  mounted() {}
+
+  deleteLine(i: number): void {
+    this.movieList.splice(i, 1);
+  }
+}
 </script>

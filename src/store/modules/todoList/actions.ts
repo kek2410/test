@@ -4,6 +4,7 @@ import { RootState } from "@/store/types";
 
 export const actions: ActionTree<State, RootState> = {
   listAdd({ commit }, payload): void {
+    console.log(payload);
     commit("listAdd", payload);
   },
   statusControl({ commit }, payload): void {

@@ -14,16 +14,17 @@ export const mutations: MutationTree<State> = {
   },
   listEdit(state: State, payload): void {
     state.todolist[payload.index].memo = payload.memo;
+    state.memo = "";
+    state.index = -1;
+    state.mode = "add";
   },
-  changeState(state: State, payload): void {
-    if (payload.memo !== undefined && payload.memo !== null) {
-      state.memo = payload.memo;
-    }
-    if (payload.index !== undefined && payload.index !== null) {
-      state.index = payload.index;
-    }
-    if (payload.mode !== undefined && payload.mode !== null) {
-      state.mode = payload.mode;
-    }
+  setMemo(state: State, payload): void {
+    state.memo = payload;
+  },
+  setIndex(state: State, payload): void {
+    state.index = payload;
+  },
+  setMode(state: State, payload): void {
+    state.mode = payload;
   }
 };
