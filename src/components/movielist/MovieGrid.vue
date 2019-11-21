@@ -8,12 +8,12 @@
         <v-card style="width:10%;" class="pa-2" outlined tile>평점</v-card>
       </v-row>
       <v-row
-        v-for="(list, index) in movieList"
+        v-for="(data, index) in movieList"
         :key="index"
         style="height:160px;"
         no-gutters
       >
-        <MovieGridRow :list="list" />
+        <MovieGridRow :data="data" />
       </v-row>
     </v-container>
   </div>
@@ -38,9 +38,5 @@ export default class MovieGrid extends Vue {
   @Prop() movieList!: any;
 
   mounted() {}
-
-  deleteLine(i: number): void {
-    this.movieList.splice(i, 1);
-  }
 }
 </script>

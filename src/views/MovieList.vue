@@ -8,7 +8,7 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import MovieGrid from "@/components/movielist/MovieGrid.vue";
-import customAxios from "@/axios";
+import { openAPI } from "@/api/axios";
 
 @Component({
   components: {
@@ -23,13 +23,13 @@ export default class MovieList extends Vue {
   params: {} = {};
   //mounted
   mounted() {
-    this.searchMovie();
+    // this.searchMovie();
   }
 
   //methods
   async searchMovie() {
-    this.movieList = await customAxios(this.url, this.params);
-    // this.movieList = await customAxios(this.url);
+    const result = await openAPI(this.url, this.params);
+    this.movieList = result.data.movies;
   }
 }
 </script>

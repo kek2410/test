@@ -1,15 +1,15 @@
 <template>
   <div style="width:100%;">
     <v-row no-gutters>
-      <v-img style="width:10%;" :src="list.small_cover_image"></v-img>
+      <v-img style="width:10%;" :src="data.small_cover_image"></v-img>
       <v-card style="width:10%;" class="pa-2" outlined tile>{{
-        list.title
+        data.title
       }}</v-card>
       <v-card style="width:70%;" class="pa-2" outlined tile>{{
-        list.synopsis
+        data.synopsis
       }}</v-card>
       <v-card style="width:10%;" class="pa-2" outlined tile>{{
-        list.rating
+        data.rating
       }}</v-card>
     </v-row>
   </div>
@@ -19,15 +19,11 @@
 import { Component, Vue, Prop } from "vue-property-decorator";
 
 @Component({
-  computed: {
-    // ...mapActions(namespace, ["actionLogin"])
-  },
-  methods: {
-    // ...mapActions(namespace, ["actionLogin"])
-  }
+  computed: {},
+  methods: {}
 })
 export default class MovieGridRow extends Vue {
-  @Prop() list!: any;
+  @Prop() data!: any;
 
   mounted() {}
 }

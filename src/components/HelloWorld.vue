@@ -1,25 +1,20 @@
 <template>
-  <div>
+  <div no-gutters>
     <h1>{{ msg }}</h1>
     <h2>{{ animals.age }}</h2>
     <h3>{{ animals.name }}</h3>
     <h4>{{ testNumber }}</h4>
+    <h5>{{ $t("hello") }}</h5>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Prop } from "vue-property-decorator";
-import Component from "vue-class-component";
-
-interface Pet {
-  age: number;
-  name: string;
-}
+import { Vue, Prop, Component } from "vue-property-decorator";
 
 @Component
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
   @Prop() testNumber!: number;
-  animals: Pet = { age: 12, name: "kitty" };
+  animals = { age: 12, name: "kitty" };
 }
 </script>

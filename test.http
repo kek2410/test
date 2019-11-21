@@ -1,3 +1,3 @@
 //rest client가 필요하다.
 //API URL를 입력하시면 Send Request 라는 test가 url 위에 보이니 바로 api data를 확인해볼 수 있다.
-https://google.com
+https://reqres.in/api/register?email=eve.holt@reqres.in&password=pistol

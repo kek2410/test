@@ -4,7 +4,7 @@ import { getters } from "./getters";
 import { actions } from "./actions";
 import { Module } from "vuex";
 import { State } from "./state";
-import { RootState } from "@/store/types";
+import { RootState } from "@/store";
 
 //초기값 설정.
 export const state: State = {

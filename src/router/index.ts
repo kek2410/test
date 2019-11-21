@@ -1,90 +1,57 @@
 import Vue from "vue";
-import VueRouter from "vue-router";
+import VueRouter, { RouteConfig, Route } from "vue-router";
 import store from "@/store";
+import defaultLayout from "@/layout/DefaultLayout.vue";
+import children from "./menuList";
 
 Vue.use(VueRouter);
 
-const Home = (): any => import("@/views/Home.vue");
 const LoginPage = (): any => import("@/views/LoginPage.vue");
-const Notice = (): any => import("@/views/Notice.vue");
-const ToDoList = (): any => import("@/views/ToDoList.vue");
-const MyPage = (): any => import("@/views/MyPage.vue");
-const MovieList = (): any => import("@/views/MovieList.vue");
 
-const isLogin = store.getters["login/getIsLogin"];
-
-const rejectAuthUser = (to: string, from: string, next: any): void => {
-  if (isLogin) {
-    alert("이미 로그인하였습니다.");
-    next("/");
-  } else {
-    next();
-  }
+const loginRoute: RouteConfig = {
+  path: "/login",
+  name: "login",
+  component: LoginPage
+  // meta: { layout: "Empty" }
 };
 
-const onlyAuthUser = (to: string, from: string, next: any): void => {
-  if (isLogin) {
-    alert("로그인이 필요합니다.");
-    next("/");
-  } else {
-    next();
-  }
+const allRoute: RouteConfig = {
+  path: "/",
+  name: "main",
+  component: defaultLayout,
+  children
 };
 
-const routes: any = [
-  {
-    path: "/",
-    name: "home",
-    component: Home
-  },
-  {
-    path: "/login",
-    name: "login",
-    beforeEnter: rejectAuthUser,
-    component: LoginPage
-  },
-  {
-    path: "/notice",
-    name: "notice",
-    component: Notice
-    // children: [
-    //   {
-    //     path: "/detail",
-    //     name: "notice",
-    //     component: NoticeDetail
-    //   }
-    // ]
-  },
-  {
-    path: "/mypage",
-    name: "mypage",
-    beforeEnter: onlyAuthUser,
-    component: MyPage
-  },
-  {
-    path: "/todolist",
-    name: "todolist",
-    component: ToDoList
-  },
-  {
-    path: "/movielist",
-    name: "movielist",
-    component: MovieList
-  },
-  {
-    path: "/redirect-me",
-    redirect: { name: "about" }
-  },
-  {
-    path: "/*",
-    redirect: { name: "home" }
-  }
-];
+const exceptRoute: RouteConfig = {
+  path: "/redirect-me",
+  redirect: { name: "login" }
+};
+
+const exceptRoute2: RouteConfig = {
+  path: "/*",
+  component: LoginPage
+  // redirect: { name: "login" }
+};
+
+const routes: RouteConfig[] = [loginRoute, allRoute, exceptRoute, exceptRoute2];
 
 const router: any = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes
+});
+
+router.beforeEach(function(to: Route, from: Route, next: any): void {
+  const isAuthed = store.getters["login/isLogin"];
+  // console.log(to.name, isAuthed);
+  // console.log(children);
+  if (to.name === "login" && isAuthed) {
+    next({ name: "main" });
+  } else if (to.name !== "login" && !isAuthed) {
+    next({ name: "login" });
+  } else {
+    next();
+  }
 });
 
 export default router;

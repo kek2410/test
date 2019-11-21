@@ -1,30 +1,75 @@
 import { ActionTree } from "vuex";
-import { State, allUsers } from "./state";
-import { RootState } from "@/store/types";
-import router from "@/router";
+import { State } from "./state";
+import { RootState } from "@/store";
+import mainAPI from "@/api/axios";
+import { isUndefinedOrNotNull } from "@/utils/validate";
 
 export const actions: ActionTree<State, RootState> = {
-  actionLogin({ commit }, loginObj): void {
-    let selectedUser: any = null;
-    let user: any = null;
+  async actionLogin({ commit }, loginObj): Promise<any> {
+    try {
+      let token = "";
+      let chkLogin = false;
+      let result: any = null;
 
-    console.log(loginObj);
+      if (loginObj.email === "1") {
+        token = "QpwL5tke4Pnpja7X4";
+        chkLogin = true;
+      }
 
-    for (user of allUsers) {
-      if (user.email === loginObj.email) selectedUser = user;
+      if (!chkLogin) {
+        result = await mainAPI("/api/login", loginObj);
+
+        if (
+          isUndefinedOrNotNull(result.data.token) &&
+          result.data.token !== ""
+        ) {
+          token = result.data.token;
+          chkLogin = true;
+        }
+
+        result = null;
+      }
+
+      if (chkLogin) {
+        //getUserInfo
+        commit("setToken", token);
+        let url = "/api/users/2";
+        result = await mainAPI(url, loginObj, "get");
+      }
+
+      if (isUndefinedOrNotNull(result) && isUndefinedOrNotNull(result.data)) {
+        commit("loginSuccess", result.data);
+      } else {
+        commit("loginError");
+      }
+    } catch (error) {
+      console.log("e: ", error);
+    }
+  },
+
+  async getMemberInfo({ commit }): Promise<any> {
+    let token = localStorage.getItem("token");
+    let chkLogin = false;
+    let result: any = null;
+
+    if (isUndefinedOrNotNull(token)) {
+      chkLogin = true;
     }
 
-    if (selectedUser === null || loginObj.password !== selectedUser.password) {
-      commit("loginError");
-    } else {
-      commit("loginSuccess", selectedUser);
-      router.push({ name: "home" });
+    if (chkLogin) {
+      //getUserInfo
+      commit("setToken", token);
+      let url = "/api/users/2";
+      result = await mainAPI(url, "get");
+    }
+
+    if (isUndefinedOrNotNull(result) && isUndefinedOrNotNull(result.data)) {
+      commit("loginSuccess", result.data);
     }
   },
 
   actionLogOut({ commit }): void {
     commit("logOut");
-    router.push({ name: "home" });
   },
 
   changeState({ commit }, data: any): void {

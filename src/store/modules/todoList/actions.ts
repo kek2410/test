@@ -1,10 +1,9 @@
 import { ActionTree } from "vuex";
 import { State } from "./state";
-import { RootState } from "@/store/types";
+import { RootState } from "@/store";
 
 export const actions: ActionTree<State, RootState> = {
   listAdd({ commit }, payload): void {
-    console.log(payload);
     commit("listAdd", payload);
   },
   statusControl({ commit }, payload): void {

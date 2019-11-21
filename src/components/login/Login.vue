@@ -1,12 +1,16 @@
 <template>
-  <v-container style="max-width:350px;" name="loginCon">
+  <v-container style="max-width:350px;">
     <v-row>
       <v-col cols="12">
-        <v-alert :value="isLoginError" type="error">아이디와 비밀번호를 확인해주세요.</v-alert>
-        <v-alert :value="isLogin" type="success">로그인이 완료되었습니다.</v-alert>
+        <v-alert :value="isLoginError" type="error"
+          >아이디와 비밀번호를 확인해주세요.</v-alert
+        >
+        <v-alert :value="isLogin" type="success"
+          >로그인이 완료되었습니다.</v-alert
+        >
         <v-card>
           <v-toolbar flat>
-            <v-toolbar-title>로그인</v-toolbar-title>
+            <v-toolbar-title>{{ $t("login") }}</v-toolbar-title>
           </v-toolbar>
           <div class="pa-3">
             <v-text-field v-model="email" label="이메일을 입력해주세요." />
@@ -47,12 +51,11 @@ export default class LoginPage extends Vue {
   @State("login") login!: LoginState;
 
   get email() {
-    console.log(this.login.email);
     return this.login.email;
   }
 
   set email(val: any) {
-    this.$store.commit("login/chStateEmail", { email: val });
+    this.$store.commit("login/chStateEmail", val);
     // this.changeState({ email: val });
   }
 
@@ -68,7 +71,7 @@ export default class LoginPage extends Vue {
   @Getter("fullName", { namespace }) fullName!: string;
 
   mounted() {
-    this.email = this.login.email;
+    this.email = "";
   }
 
   loginGo(): void {
@@ -76,9 +79,17 @@ export default class LoginPage extends Vue {
       email: this.email,
       password: this.password
     };
-    console.log(this.email);
-    console.log(data);
-    // this.actionLogin(data);
+
+    let chk = true;
+
+    if (this.email === "") {
+      alert(this.$t("inputEmail"));
+      chk = false;
+    } else if (this.password === "") {
+      alert(this.$t("inputPassword"));
+      chk = false;
+    }
+    if (chk) this.actionLogin(data);
     // this.$store.dispatch("actionLogin", data, { root: true });
   }
 }
