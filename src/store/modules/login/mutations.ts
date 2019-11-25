@@ -1,6 +1,7 @@
 import { State } from "./state";
 import { MutationTree } from "vuex";
 import router from "@/router";
+import i18n from "@/locale";
 
 export const mutations: MutationTree<State> = {
   loginSuccess: (state: State, payload: any): any => {
@@ -34,5 +35,15 @@ export const mutations: MutationTree<State> = {
   setToken: (state: State, payload: string): any => {
     localStorage.setItem("token", payload);
     state.token = payload;
+  },
+  setThemeColor(state: any, payload: any): void {
+    state.themeColor = payload;
+  },
+  applyThemeColor(state: any, payload: any): void {
+    state.themeColor = payload;
+  },
+  setLocale(state: any, payload: any): void {
+    state.locale = payload;
+    i18n.locale = payload;
   }
 };

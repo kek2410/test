@@ -1,6 +1,6 @@
 <template>
   <v-color-picker
-    v-model="appcolor"
+    v-model="themeColor"
     :hide-canvas="true"
     :hide-inputs="true"
     :hide-mode-switch="true"
@@ -15,9 +15,11 @@
 import { Vue, Component } from "vue-property-decorator";
 import { State, Mutation } from "vuex-class";
 
+const namespace = "login";
+
 @Component
 export default class ColorPicker extends Vue {
-  color = "691A1A";
+  // color = "691A1A";
   mode = "rgba";
   showSwatches: boolean = true;
 
@@ -29,26 +31,20 @@ export default class ColorPicker extends Vue {
     ["#0000FF", "#0000AA", "#000055"]
   ];
 
-  @State("themeColor") themeColor!: any;
+  @State(namespace) login!: any;
 
-  @Mutation("setThemeColor") setThemeColor!: any;
-
-  get appcolor() {
-    return this.color;
+  get themeColor() {
+    return this.login.themeColor;
   }
 
-  set appcolor(val) {
-    console.log(val);
-    this.color = val;
+  set themeColor(val) {
+    this.setThemeColor(val);
   }
 
-  created() {
-    this.themeColor;
-    this.setThemeColor({ value: true });
-  }
+  @Mutation("setThemeColor", { namespace }) setThemeColor!: any;
 
-  doChangeThemeColor(): void {
-    this.$store.commit("setThemeColor", this.color);
-  }
+  created() {}
+
+  doChangeThemeColor(): void {}
 }
 </script>

@@ -1,9 +1,9 @@
 <template>
-  <v-app-bar app color="themeColor" dark clipped-left>
+  <v-app-bar app :color="themeColor" dark clipped-left>
     <v-app-bar-nav-icon @click.stop="fnDraw" />
     <v-toolbar-title>{{ $t("logo") }}</v-toolbar-title>
     <v-spacer />
-    <ColorPicker />
+    <!-- <ColorPicker /> -->
     <LocaleSelect style="margin-top: 25px;" />
     <v-menu v-if="isLogin === true" offset-y>
       <template v-slot:activator="{ on }">
@@ -44,7 +44,7 @@ const namespace = "login";
   }
 })
 export default class MainNavi extends Vue {
-  @State("login") login!: LoginState;
+  @State(namespace) login!: LoginState;
 
   @Prop() drawer!: any;
 
@@ -52,12 +52,17 @@ export default class MainNavi extends Vue {
     return this.login.isLogin;
   }
 
+  // get themeColor() {
+  //   return this.login.themeColor;
+  // }
+
   get FullName() {
     return this.login.userInfo.first_name + this.login.userInfo.last_name;
   }
 
   @Action("actionLogOut", { namespace }) actionLogOut: any;
-  @Getter("themeColor") themeColor: any;
+
+  @Getter("themeColor", { namespace }) themeColor!: string;
 
   loginOut(): void {
     this.actionLogOut();

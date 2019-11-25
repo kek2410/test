@@ -16,4 +16,6 @@ export declare interface State {
   email: string;
   password: string;
   token: string;
+  locale: string;
+  themeColor: string;
 }

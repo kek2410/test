@@ -36,7 +36,9 @@ export const state: State = {
   isLoginError: false,
   email: "",
   password: "",
-  token: ""
+  token: "",
+  locale: "ko",
+  themeColor: "dark-grey"
 };
 
 const namespaced = true;
