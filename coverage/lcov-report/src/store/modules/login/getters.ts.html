@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/store/modules/login/getters.ts</title>
+    <title>Code coverage report for src/store/modules/Login/getters.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="..\..\..\..\prettify.css" />
     <link rel="stylesheet" href="..\..\..\..\base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="..\..\..\..\index.html">All files</a> / <a href="index.html">src/store/modules/login</a> getters.ts
+      <a href="..\..\..\..\index.html">All files</a> / <a href="index.html">src/store/modules/Login</a> getters.ts
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/5</span>
+        <span class='fraction'>0/6</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -32,12 +32,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>0/5</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/5</span>
+        <span class='fraction'>0/6</span>
       </div>
     </div>
     <p class="quiet">
@@ -57,42 +57,27 @@
 <a name='L9'></a><a href='#L9'>9</a>
 <a name='L10'></a><a href='#L10'>10</a>
 <a name='L11'></a><a href='#L11'>11</a>
-<a name='L12'></a><a href='#L12'>12</a>
-<a name='L13'></a><a href='#L13'>13</a>
-<a name='L14'></a><a href='#L14'>14</a>
-<a name='L15'></a><a href='#L15'>15</a>
-<a name='L16'></a><a href='#L16'>16</a>
-<a name='L17'></a><a href='#L17'>17</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L12'></a><a href='#L12'>12</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { GetterTree } from "vuex";
 import { State } from "./state";
-import { RootState } from "@/store/types";
+import { RootState } from "@/store";
 &nbsp;
 export const getters: GetterTree&lt;State, RootState&gt; = <span class="cstat-no" title="statement not covered" >{</span>
-<span class="fstat-no" title="function not covered" >  fullName(</span>state: State): string {
-    const id = <span class="cstat-no" title="statement not covered" >state.userInfo || "";</span>
-    // const name = (state &amp;&amp; state.userInfo.name) || "";
-    // return `${id} ${name}`;
-<span class="cstat-no" title="statement not covered" >    return `</span>${id}`;
-  },
-<span class="fstat-no" title="function not covered" >  getIsLogin(</span>state: State): boolean {
-    const isLogin = <span class="cstat-no" title="statement not covered" >state.isLogin;</span>
-<span class="cstat-no" title="statement not covered" >    return i</span>sLogin;
-  }
+  fullName: (<span class="fstat-no" title="function not covered" >state: State): string =&gt; <span class="cstat-no" title="statement not covered" >`</span>${state.userInfo || ""}`,</span>
+  isLogin: (<span class="fstat-no" title="function not covered" >state: State): boolean =&gt; <span class="cstat-no" title="statement not covered" >s</span>tate.isLogin,</span>
+  getToken: (<span class="fstat-no" title="function not covered" >state: State): string =&gt; <span class="cstat-no" title="statement not covered" >s</span>tate.token,</span>
+  themeColor: (<span class="fstat-no" title="function not covered" >state: State): string =&gt; <span class="cstat-no" title="statement not covered" >s</span>tate.themeColor,</span>
+  getLocale: (<span class="fstat-no" title="function not covered" >state: State): string =&gt; <span class="cstat-no" title="statement not covered" >s</span>tate.locale</span>
 };
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -100,7 +85,7 @@ export const getters: GetterTree&lt;State, RootState&gt; = <span class="cstat-no
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Nov 18 2019 17:41:06 GMT+0900 (GMT+09:00)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 26 2019 13:36:30 GMT+0900 (GMT+09:00)
 </div>
 </div>
 <script src="..\..\..\..\prettify.js"></script>

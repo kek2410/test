@@ -3,7 +3,6 @@
     <v-app-bar-nav-icon @click.stop="fnDraw" />
     <v-toolbar-title>{{ $t("logo") }}</v-toolbar-title>
     <v-spacer />
-    <!-- <ColorPicker /> -->
     <LocaleSelect style="margin-top: 25px;" />
     <v-menu v-if="isLogin === true" offset-y>
       <template v-slot:activator="{ on }">
@@ -31,15 +30,13 @@
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator";
 import { State, Action, Getter } from "vuex-class";
-import { State as LoginState } from "@/store/modules/login/state";
-import ColorPicker from "@/components/ColorPicker/ColorPicker.vue";
+import { State as LoginState } from "@/store/modules/Login/state";
 import LocaleSelect from "@/components/LocaleSelect/LocaleSelect.vue";
 
 const namespace = "login";
 
 @Component({
   components: {
-    ColorPicker,
     LocaleSelect
   }
 })

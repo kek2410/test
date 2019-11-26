@@ -6,19 +6,19 @@
     <v-btn @click="increment">
       <v-icon>mdi-plus</v-icon>
     </v-btn>
-    <HelloWorld :msg="inputMsg" :test-number="testNumber" />
+    <Example :msg="inputMsg" :test-number="testNumber" />
   </div>
 </template>
 
 <script lang="ts">
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import Example from "@/components/Example.vue";
 import Component from "vue-class-component";
 import { Vue } from "vue-property-decorator";
 
 @Component({
   components: {
-    HelloWorld
+    Example
   }
 })
 export default class Home extends Vue {

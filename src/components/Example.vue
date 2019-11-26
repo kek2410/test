@@ -12,7 +12,7 @@
 import { Vue, Prop, Component } from "vue-property-decorator";
 
 @Component
-export default class HelloWorld extends Vue {
+export default class Example extends Vue {
   @Prop() private msg!: string;
   @Prop() testNumber!: number;
   animals = { age: 12, name: "kitty" };

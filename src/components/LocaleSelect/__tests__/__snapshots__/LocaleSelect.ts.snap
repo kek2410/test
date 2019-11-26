@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LocaleSelect.vue!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! LocaleSelect.vue 1`] = `
+<div class="d-flex col-sm-2 col-12">
+  <div class="v-input v-input--dense theme--light v-text-field v-text-field--enclosed v-text-field--outlined v-select">
+    <div class="v-input__control">
+      <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-6" class="v-input__slot">
+        <fieldset aria-hidden="true">
+          <legend style="width: 0px;"><span>​</span></legend>
+        </fieldset>
+        <div class="v-select__slot"><label for="testtest" class="v-label theme--light" style="left: 0px; position: absolute;">Select</label>
+          <div class="v-select__selections"><input name="testtest" id="testtest" readonly="readonly" type="text" aria-readonly="true"></div>
+          <div class="v-input__append-inner">
+            <div class="v-input__icon v-input__icon--append"><i aria-hidden="true" class="v-icon notranslate mdi mdi-menu-down theme--light"></i></div>
+          </div>
+        </div>
+        <div class="v-menu">
+          <div class="v-menu__content theme--light " style="max-height: 304px; min-width: 0px; max-width: auto; top: 12px; left: 0px; transform-origin: top left; z-index: 0; display: none;"></div>
+        </div>
+      </div>
+      <div class="v-text-field__details">
+        <div class="v-messages theme--light"><span name="message-transition" tag="div" class="v-messages__wrapper"></span></div>
+      </div>
+    </div>
+  </div> <button type="button" class="v-btn v-btn--contained theme--light v-size--default"><span class="v-btn__content">
+    Action
+  </span></button> <button class="test111">aa</button>
+</div>
+`;
+
+exports[`LocaleSelect.vue!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! LocaleSelect.vue 2`] = `
+<v-col-stub cols="12" sm="2" tag="div" class="d-flex">
+  <v-select-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="" appendicon="$dropdown" backgroundcolor="" dense="true" id="testtest" label="Select" loaderheight="2" clearicon="$clear" outlined="true" type="text" valuecomparator="function deepEqual(a, b) {
+  if (a === b) return true;
+
+  if (a instanceof Date &amp;&amp; b instanceof Date) {
+    // If the values are Date, they were convert to timestamp with getTime and compare it
+    if (a.getTime() !== b.getTime()) return false;
+  }
+
+  if (a !== Object(a) || b !== Object(b)) {
+    // If the values aren't objects, they were already checked for equality
+    return false;
+  }
+
+  var props = Object.keys(a);
+
+  if (props.length !== Object.keys(b).length) {
+    // Different number of props, don't bother to check
+    return false;
+  }
+
+  return props.every(function (p) {
+    return deepEqual(a[p], b[p]);
+  });
+}" nodatatext="$vuetify.noDataText" items="[object Object],[object Object],[object Object]" itemcolor="primary" itemdisabled="disabled" itemtext="text" itemvalue="value" menuprops="[object Object]" name="testtest"></v-select-stub>
+  <v-btn-stub tag="button" activeclass="" type="button">
+    Action
+  </v-btn-stub> <button class="test111">aa</button>
+</v-col-stub>
+`;

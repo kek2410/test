@@ -33,7 +33,7 @@
 import { Component, Vue } from "vue-property-decorator";
 import { State, Getter, Action } from "vuex-class";
 // import { State, Getter } from "vuex-class";
-import { State as LoginState } from "@/store/modules/login/state";
+import { State as LoginState } from "@/store/modules/Login/state";
 // import { mapActions } from "vuex";
 
 const namespace = "login";
@@ -46,7 +46,7 @@ const namespace = "login";
     // ...mapActions(namespace, ["actionLogin"])
   }
 })
-export default class LoginPage extends Vue {
+export default class Login extends Vue {
   password: string = "";
   @State("login") login!: LoginState;
 

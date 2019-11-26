@@ -9,8 +9,8 @@
 <script lang="ts">
 import { Vue, Prop, Component } from "vue-property-decorator";
 import { State } from "vuex-class";
-import { State as LoginState } from "@/store/modules/login/state";
-import MainNaviList from "@/layout/components/main/MainNaviList.vue";
+import { State as LoginState } from "@/store/modules/Login/state";
+import MainNaviList from "@/layout/components/Main/MainNaviList.vue";
 
 @Component({
   components: {

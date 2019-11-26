@@ -1,43 +1,53 @@
 <template>
   <v-col class="d-flex" cols="12" sm="2">
     <v-select
-      v-model="locale"
+      v-model="selectValue"
       :items="items"
-      item-text="state"
-      item-value="abbr"
+      item-text="text"
+      item-value="value"
       label="Select"
       outlined
       dense
+      id="testtest"
+      name="testtest"
+      @change="changeSelect"
     ></v-select>
+    <v-btn @click="changeSelect">
+      Action
+    </v-btn>
+    <button class="test111" @click="changeSelect">aa</button>
   </v-col>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import { State } from "vuex-class";
+import { State, Action } from "vuex-class";
+// import { mutations } from "../../store/modules/Login/mutations";
 
-const namespaece = "login";
+const namespace = "login";
 
-@Component
+@Component({})
 export default class LocaleSelect extends Vue {
   items = [
-    { state: "대한민국", abbr: "ko" },
-    { state: "English", abbr: "en" },
-    { state: "日本語", abbr: "ja" }
+    { text: "대한민국", value: "ko" },
+    { text: "English", value: "en" },
+    { text: "日本語", value: "ja" }
   ];
 
-  @State(namespaece) login!: any;
+  selectValue = "";
 
-  get locale() {
-    return this.login.locale;
-  }
+  @State(namespace) login!: any;
+  @Action("setLocale", { namespace }) setLocale: any;
 
-  set locale(val) {
-    this.$store.commit("login/setLocale", val);
+  changeSelect(val: any): void {
+    this.setLocale(val);
+    // this.$store.commit("login/setLocale", val);
   }
 
   created() {}
 
-  mounted() {}
+  mounted() {
+    this.selectValue = this.login.locale;
+  }
 }
 </script>

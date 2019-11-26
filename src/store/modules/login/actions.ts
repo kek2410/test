@@ -67,12 +67,13 @@ export const actions: ActionTree<State, RootState> = {
       commit("loginSuccess", result.data);
     }
   },
-
   actionLogOut({ commit }): void {
     commit("logOut");
   },
-
   changeState({ commit }, data: any): void {
     commit("changeState", data);
+  },
+  setLocale({ commit }, data: any): void {
+    commit("setLocale", data);
   }
 };

@@ -1,10 +1,7 @@
 import Vue from "vue";
 import Vuex, { StoreOptions } from "vuex";
-import { login } from "@/store/modules/login";
-import { todoList } from "@/store/modules/todoList";
+import { login } from "@/store/modules/Login";
 import { RootState } from "./";
-
-// const debug = process.env.NODE_ENV !== "production";
 
 Vue.use(Vuex);
 
@@ -25,8 +22,7 @@ const store: StoreOptions<RootState> = {
   mutations,
   getters,
   modules: {
-    login,
-    todoList
+    login
   },
   strict: true
 };

@@ -14,10 +14,10 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import MainNavi from "@/layout/components/main/MainNavi.vue";
-import MainHeader from "@/layout/components/main/MainHeader.vue";
-import MainFooter from "@/layout/components/main/MainFooter.vue";
-import MainProgress from "@/layout/components/main/MainProgress.vue";
+import MainNavi from "@/layout/components/Main/MainNavi.vue";
+import MainHeader from "@/layout/components/Main/MainHeader.vue";
+import MainFooter from "@/layout/components/Main/MainFooter.vue";
+import MainProgress from "@/layout/components/Main/MainProgress.vue";
 
 @Component({
   components: {

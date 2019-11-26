@@ -16,24 +16,18 @@ const loginRoute: RouteConfig = {
 };
 
 const allRoute: RouteConfig = {
-  path: "/",
+  path: "/:id",
   name: "main",
   component: defaultLayout,
   children
 };
 
 const exceptRoute: RouteConfig = {
-  path: "/redirect-me",
+  path: "/*",
   redirect: { name: "login" }
 };
 
-const exceptRoute2: RouteConfig = {
-  path: "/*",
-  component: LoginPage
-  // redirect: { name: "login" }
-};
-
-const routes: RouteConfig[] = [loginRoute, allRoute, exceptRoute, exceptRoute2];
+const routes: RouteConfig[] = [loginRoute, allRoute, exceptRoute];
 
 const router: any = new VueRouter({
   mode: "history",

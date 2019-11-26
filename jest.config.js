@@ -1,6 +1,6 @@
 module.exports = {
   preset: "@vue/cli-plugin-unit-jest/presets/typescript-and-babel",
-  setupFilesAfterEnv: ["<rootDir>/tests/jest-setup.ts"],
+  setupFilesAfterEnv: ["<rootDir>/src/plugins/jest-setup.ts"],
   collectCoverage: true,
   collectCoverageFrom: [
     "src/**/*.{ts,js,vue}",
@@ -11,14 +11,13 @@ module.exports = {
     "^.+\\.vue$": "vue-jest",
     ".+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$":
       "jest-transform-stub",
-    "^.+\\.jsx?$": "babel-jest"
+    "^.+\\.jsx?$": "babel-jest",
+    "^.+\\.tsx?$": "ts-jest"
   },
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1"
   },
   snapshotSerializers: ["jest-serializer-vue"],
-  testMatch: [
-    "**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)"
-  ],
+  testPathIgnorePatterns: ["<rootDir>/build/", "<rootDir>/node_modules/"],
   transformIgnorePatterns: ["<rootDir>/node_modules/"]
 };

@@ -11,21 +11,6 @@ const list = [
     name: "home",
     icon: "mdi-home",
     title: "Home"
-  },
-  {
-    name: "notice",
-    icon: "mdi-note-text-outline",
-    title: "Notice"
-  },
-  {
-    name: "todolist",
-    icon: "mdi-calendar-multiple-check",
-    title: "ToDoList"
-  },
-  {
-    name: "movielist",
-    icon: "mdi-library-movie",
-    title: "MovieList"
   }
 ];
 
